@@ -29,6 +29,9 @@
   // Should be left empty in these cases: https://www.w3.org/WAI/tutorials/images/decorative/
   export let alt: string = "";
   export let imageClass: string = null;
+  // https://web.dev/optimize-cls/#images-without-dimensions
+  export let width: string = "1920";
+  export let height: string = "1080";
 
   const srcSetWebp: string = widths.map(width => `${name}@${width}.webp ${width}w`).join(', ') || null;
   const srcSetJpg: string = widths.map(width => `${name}@${width}.jpg ${width}w`).join(', ') || null;
@@ -53,5 +56,7 @@
     alt = {alt}
     class = {imageClass}
     data-testid="img"
+    width={width}
+    height={height}
   >
 </picture>
